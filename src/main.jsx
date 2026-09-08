@@ -56,7 +56,7 @@ function App() {
   async function searchMods() {
     setModLoading(true);
     try {
-      const facets = [["project_type:mod"], ["categories:" + modLoader]]];
+      const facets = [["project_type:mod"], ["categories:" + modLoader]];
       if (modVersion) facets.push([`versions:${modVersion}`]);
       const params = new URLSearchParams({ query: modQuery || 'minecraft', limit: '24', index: 'relevance', facets: JSON.stringify(facets) });
       const res = await fetch(`${MODRINTH}/search?${params}`);
